@@ -39,16 +39,13 @@ var app = {
     //onLine event
     onOnline:function(){
         //app.receivedEvent('online');
-        alert("onLine function called");
-        window.location = "http://build.phonegap.com/";
-        console.log('Added  Event: online ');
+        window.location = "http://pedesorange.rapapp.com/m";
+        console.log('Fired online event ');
     },
     //onOffline event handler
     onOffline:function(){
         //app.receivedEvent('offline');
-        alert("Going offline");
-        console.log('Added  Event: offline');
-
+        console.log('Fired offline event ');
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
