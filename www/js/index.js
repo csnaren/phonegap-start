@@ -26,7 +26,7 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
-        document.addEventListener("online", this.onLine, false);
+        //document.addEventListener("online", this.onLine, false);
         document.addEventListener("deviceready", this.onDeviceReady, false);
     },
     // deviceready Event Handler
@@ -37,23 +37,30 @@ var app = {
         app.receivedEvent('deviceready');
     },
     //onLine event
-    onLine:function(){
+    onOnline:function(){
         //app.receivedEvent('online');
         alert("onLine function called");
         window.location = "http://build.phonegap.com/";
+        console.log('Added  Event: online ');
+    },
+    //onOffline event handler
+    onOffline:function(){
+        //app.receivedEvent('offline');
+        alert("Going offline");
+        console.log('Added  Event: offline');
+
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        alert("Passed event " + id);
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-        if(id=="online"){
-            window.location = "http://pedesorange.rapapp.com/m";
-        }
+
+        document.addEventListener("online", this.onOnline, false);
+        document.addEventListener("offline",this.onOffline, false);
 
         console.log('Received Event: ' + id);
     }
