@@ -27,6 +27,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener('onLine', this.onLine, false);
     },
     // deviceready Event Handler
     //
@@ -34,6 +35,12 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+    },
+    //onLine event
+    onLine:function(){
+        app.receivedEvent('onLine');
+        window.location = "http://pedesorange.rapapp.com/m"
+
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
